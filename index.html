@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ShopZone — discover everyday essentials and great deals.">
+  <title>ShopZone | Modern Online Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#" aria-label="ShopZone home"><span class="brand-mark">S</span> Shop<span>Zone</span></a>
+      <button class="menu-toggle icon-button" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <nav class="main-nav" id="mainNav">
+        <a class="nav-link active" href="#home">Home</a>
+        <a class="nav-link" href="#products">Shop</a>
+        <a class="nav-link" href="#benefits">Why ShopZone</a>
+        <a class="nav-link" href="#footer">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <label class="search-box" aria-label="Search products">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search products..." autocomplete="off">
+          <kbd>⌘ K</kbd>
+        </label>
+        <button class="icon-button" id="themeToggle" aria-label="Toggle light and dark theme" title="Toggle theme">☼</button>
+        <button class="cart-button" id="cartButton" aria-label="Open shopping cart">
+          <span aria-hidden="true">🛒</span><span>Cart</span><b id="cartCount">0</b>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="live-dot"></span> THE EVERYDAY EDIT</span>
+        <h1>Good finds.<br><span>Better prices.</span></h1>
+        <p>Meet your next favourite thing. Thoughtful picks, everyday essentials, and deals worth a second look.</p>
+        <a class="button button-primary" href="#products">Explore collection <span>↗</span></a>
+        <div class="hero-proof"><div class="avatar-stack"><i>J</i><i>M</i><i>A</i><i>+</i></div><span><strong>12k+</strong> happy shoppers</span></div>
+      </div>
+      <div class="hero-art" aria-label="Featured headphones product">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="hero-tag tag-top"><span>✦</span> Staff pick</div>
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=85" alt="Premium wireless headphones">
+        <div class="hero-product-note"><span class="note-label">FEATURED THIS WEEK</span><strong>Studio Wireless</strong><span>Immersive sound. Zero fuss.</span><a href="#products">Shop headphones →</a></div>
+        <div class="hero-tag tag-bottom">✦ <strong>Up to 30% off</strong></div>
+      </div>
+      <div class="hero-glow"></div>
+    </section>
+
+    <section class="benefits container" id="benefits" aria-label="Shopping benefits">
+      <div class="benefit"><span class="benefit-icon">↗</span><div><strong>Free shipping</strong><small>On orders over $50</small></div></div>
+      <div class="benefit"><span class="benefit-icon">◇</span><div><strong>Secure checkout</strong><small>Your details stay safe</small></div></div>
+      <div class="benefit"><span class="benefit-icon">◷</span><div><strong>Here to help</strong><small>Friendly customer support</small></div></div>
+      <div class="benefit"><span class="benefit-icon">↶</span><div><strong>Easy returns</strong><small>30-day return window</small></div></div>
+    </section>
+
+    <section class="shop-section container" id="products">
+      <div class="section-heading">
+        <div><span class="eyebrow">CURATED FOR YOU</span><h2>Find your <span>next favourite.</span></h2><p>Useful things. Lovely details. Prices that make sense.</p></div>
+        <div class="result-count" id="resultCount">Showing all products</div>
+      </div>
+
+      <div class="shop-layout">
+        <aside class="filter-panel" aria-label="Product filters">
+          <div class="filter-heading"><h3>Filters</h3><button id="clearFilters" class="text-button">Clear all</button></div>
+          <div class="filter-group">
+            <h4>Category</h4>
+            <label class="check-row"><input type="radio" name="category" value="All" checked><span>All products</span></label>
+            <label class="check-row"><input type="radio" name="category" value="Electronics"><span>Electronics</span></label>
+            <label class="check-row"><input type="radio" name="category" value="Fashion"><span>Fashion</span></label>
+            <label class="check-row"><input type="radio" name="category" value="Home"><span>Home & living</span></label>
+            <label class="check-row"><input type="radio" name="category" value="Accessories"><span>Accessories</span></label>
+          </div>
+          <div class="filter-group">
+            <div class="range-heading"><h4>Price range</h4><strong id="priceValue">$0 – $1000</strong></div>
+            <input type="range" id="priceRange" min="25" max="1000" step="25" value="1000">
+            <div class="range-labels"><span>$25</span><span>$1,000</span></div>
+          </div>
+          <div class="filter-group">
+            <h4>Minimum rating</h4>
+            <select id="ratingFilter" class="select-control">
+              <option value="0">Any rating</option>
+              <option value="4">4★ & up</option>
+              <option value="4.5">4.5★ & up</option>
+            </select>
+          </div>
+          <div class="filter-note"><span>✦</span><p><strong>A little something extra</strong><br>New finds are added every week.</p></div>
+        </aside>
+
+        <div class="products-area">
+          <div class="products-toolbar">
+            <div class="active-filters" id="activeFilters"></div>
+            <label class="sort-wrap"><span>Sort by</span>
+              <select id="sortSelect" class="select-control">
+                <option value="featured">Featured</option>
+                <option value="newest">Newest first</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
+                <option value="rating">Top rated</option>
+              </select>
+            </label>
+          </div>
+          <div class="product-grid" id="productGrid" aria-live="polite"></div>
+          <div class="empty-state" id="emptyState" hidden>
+            <span>⌕</span><h3>No products found</h3><p>Try another search or clear a filter to see more goodies.</p><button class="button button-secondary" id="emptyClear">Clear filters</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="newsletter container">
+      <div><span class="eyebrow">THE GOOD STUFF, OCCASIONALLY</span><h2>A little joy in your inbox.</h2><p>New arrivals, useful finds, and subscriber-only offers. No noise.</p></div>
+      <form id="newsletterForm" class="newsletter-form"><label for="emailInput" class="sr-only">Email address</label><input id="emailInput" type="email" placeholder="Your email address" required><button class="button button-primary" type="submit">Sign me up ↗</button><small id="newsletterMessage">By subscribing, you agree to receive ShopZone updates.</small></form>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-main">
+      <div class="footer-brand"><a class="brand" href="#"><span class="brand-mark">S</span> Shop<span>Zone</span></a><p>Everyday things, thoughtfully picked.<br>Make room for the good stuff.</p><div class="social-links"><a href="#footer" aria-label="Instagram">ig</a><a href="#footer" aria-label="Pinterest">p</a><a href="#footer" aria-label="TikTok">♪</a></div></div>
+      <div><h4>Explore</h4><a href="#products">All products</a><a href="#products" data-footer-category="Electronics">Electronics</a><a href="#products" data-footer-category="Fashion">Fashion</a><a href="#products" data-footer-category="Home">Home & living</a></div>
+      <div><h4>Need a hand?</h4><a href="#footer">Contact us</a><a href="#footer">Shipping & returns</a><a href="#footer">FAQs</a><a href="#footer">Track an order</a></div>
+      <div class="footer-contact"><h4>Stay connected</h4><p>Questions? We'd love to help.</p><a href="mailto:hello@shopzone.example">hello@shopzone.example</a><span>Mon–Fri, 9am–5pm</span></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> ShopZone. All good things reserved.</span><div><a href="#footer">Privacy</a><a href="#footer">Terms</a><span>Made for everyday living ✦</span></div></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="drawer-header"><div><span class="eyebrow">YOUR BAG</span><h2>Shopping cart <span id="drawerCount">(0)</span></h2></div><button class="icon-button" id="closeCart" aria-label="Close cart">✕</button></div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty"><span>🛍</span><h3>Your bag is taking a nap.</h3><p>Add something you love and it'll show up here.</p></div>
+    <div class="cart-footer" id="cartFooter"><div class="subtotal"><span>Subtotal</span><strong id="cartSubtotal">$0.00</strong></div><p>Shipping and discounts calculated at checkout.</p><button class="button button-primary checkout-button" id="checkoutButton">Continue to checkout ↗</button><small>Demo storefront — no real payment will be taken.</small></div>
+  </aside>
+</body>
+</html>
